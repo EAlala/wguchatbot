@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <!--First Engagement-->
+  <category>
+    <pattern>*</pattern>
+    <template>When you are ready to start, please type "Begin"</template>
+  </category>
+  <!--Start Conversatino-->
+  <category>
+    <pattern>BEGIN</pattern>
+    <template>What is your name? Please respond with "My name is Blank. "</template>
+  </category>
+  <!--Get Name-->
+  <category>
+    <pattern>MY NAME IS *</pattern>
+    <template><image>https://media.tenor.com/Dr5sZCODJ50AAAAi/mochi-mochi-hello-grey-cat-mochi-mochi.gif</image>Hello <star index = "1"/>! Since you are chatting with me, I'm assuming you would like to seek career advice? Yes or No?</template>
+  </category>
+  <!--Filter-->
+  <category>
+    <pattern>YES</pattern>
+    <template>Okay great! Now first let me filter you with some options.</template>
+  </category>
+  <category>
+    <pattern>NO</pattern>
+    <template>Sorry... my advice is only for Computer Science majors.</template>
+  </category>
+  <!--Filter-->
+  <category>
+    <pattern>YES</pattern>
+    <template>Okay great! Now first, let me filter you with some options. Please pick your degree major.
+        <reply>
+            <text>Computer Science</text>
+            <postback>CS</postback>
+        </reply>
+        <reply>
+            <text>Non-Computer Science</text>
+            <postback>NCS</postback>
+        </reply>
+    </template>
+  </category>
+  <!--Filter Reply For Computer Science-->
+  <category>
+    <pattern>CS</pattern>
+    <template>Nice, I enjoy that you will be part of the new era of tech. Here are five common job types in computing. Type "Next" to find out which might be the best fit for you!
+    <carousel>
+        <card>
+            <image>https://www.usnews.com/dims4/USNEWS/af66e3c/2147483647/crop/2000x1313+0+0/resize/640x420/quality/85/?url=https%3A%2F%2Fwww.usnews.com%2Fcmsmedia%2Ff9%2Ff1%2Fa6174c87479b8222c09903d7651c%2F190219-softwaredevelopers-stock.jpg</image>
+            <title>Software Developer</title>
+        </card>
+        <card>
+            <image>https://emeritus.org/in/wp-content/uploads/sites/3/2022/09/data-science.jpg.optimal.jpg</image>
+            <title>Data Scientist</title>
+        </card>
+        <card>
+            <image>https://res.cloudinary.com/highereducation/images/f_auto,q_auto/v1662131677/ComputerScience.org/cybersecurity_degrees_6720dc664/cybersecurity_degrees_6720dc664.jpg?_i=AA</image>
+            <title>Cybersecurity Analyst</title>
+        </card>
+        <card>
+            <image>https://s7280.pcdn.co/wp-content/uploads/2018/04/Digital_Enterprise_test-700x400.png</image>
+            <title>Systems Architect</title>
+        </card>
+        <card>
+            <image>https://www.simplilearn.com/ice9/free_resources_article_thumb/web_developerskills.jpg</image>
+            <title>Web Developer</title>
+        </card>
+    </carousel>
+    </template>
+  </category>
+  <!--Filter Reply For Non Computer Science-->
+  <category>
+    <pattern>NCS</pattern>
+    <template>Sorry... my advice is only for Computer Science majors.</template>
+  </category>
+  <!--Job Preferences-->
+  <category>
+    <pattern>NEXT</pattern>
+    <template>Pick which are your strengths and prefernces.
+    <carousel>
+        <card>
+            <title>Python, Java, or C++</title>
+            <subtitle>Enjoy solving complex problems and building new applications.</subtitle>
+            <button>
+                <text>Software Developer</text>
+                <postback>Software</postback>
+            </button>
+        </card>
+        <card>
+            <title>Python, R, or SQL</title>
+            <subtitle>enjoy working with data and finding patterns and applying statistics.</subtitle>
+            <button>
+                <text>Data Scientist</text>
+                <postback>Data</postback>
+            </button>
+        </card>
+        <card>
+            <title>Networking and Encryption</title>
+            <subtitle>interested in protecting systems and data from cyber threats?</subtitle>
+            <button>
+                <text>Cybersecurity Analyst</text>
+                <postback>Cyber</postback>
+            </button>
+        </card>
+        <card>
+            <title>System Design and Problem Solving</title>
+            <subtitle>Enjoy designing and optimizing large-scale systems and long-term projects?</subtitle>
+            <button>
+                <text>System Architect</text>
+                <postback>System Arc</postback>
+            </button>
+        </card>
+        <card>
+            <title>HTML, CSS, and JavaScript</title>
+            <subtitle>Enjoy building websites or web applications?</subtitle>
+            <button>
+                <text>Web Developer</text>
+                <postback>Web</postback>
+            </button>
+        </card>
+    </carousel>
+    </template>
+  </category>
+  <!--Answers To Job Preferences-->
+  <category>
+      <pattern>Software</pattern>
+      <template>Nice, together we came to the conclusion that Software Devolpment is the one! Click the link to learn more.
+        <link>
+            <text>Everything Software Development</text>
+            <url>https://www.coursera.org/articles/software-developer</url>
+        </link>
+      </template>
+  </category>
+  <category>
+      <pattern>Data</pattern>
+      <template>Nice, together we came to the conclusion that Data Scientist is the one! Click the link to learn more.
+        <link>
+            <text>Everything Data Scientist</text>
+            <url>https://www.coursera.org/articles/software-developer</url>
+        </link>
+      </template>
+  </category>
+  <category>
+      <pattern>Cyber</pattern>
+      <template>Nice, together we came to the conclusion that Cybersecurity Analyst is the one! Click the link to learn more.
+        <link>
+            <text>Everything Cybersecurity Analyst</text>
+            <url>https://www.coursera.org/articles/cybersecurity-analyst-job-guide</url>
+        </link>
+      </template>
+  </category>
+  <category>
+      <pattern>System Arc</pattern>
+      <template>Nice, together we came to the conclusion that System Architect is the one! Click the link to learn more.
+        <link>
+            <text>Everything System Architect</text>
+            <url>https://www.splunk.com/en_us/blog/learn/system-architect-role.html</url>
+        </link>
+      </template>
+  </category>
+  <category>
+      <pattern>Web</pattern>
+      <template>Nice, together we came to the conclusion that Web Developer is the one! Click the link to learn more.
+        <link>
+            <text>Everything Web Developer</text>
+            <url>https://www.coursera.org/articles/web-developer</url>
+        </link>
+      </template>
+  </category>
+</aiml>
